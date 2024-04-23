@@ -117,7 +117,7 @@ public class CreateUsersF extends javax.swing.JFrame {
         pw = new javax.swing.JTextField();
         ut = new javax.swing.JComboBox<>();
         add = new javax.swing.JButton();
-        ut1 = new javax.swing.JComboBox<>();
+        xt1 = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         id = new javax.swing.JTextField();
@@ -182,8 +182,8 @@ public class CreateUsersF extends javax.swing.JFrame {
         });
         getContentPane().add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 80, -1));
 
-        ut1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
-        getContentPane().add(ut1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 190, -1));
+        xt1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
+        getContentPane().add(xt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 190, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("User Type:");
@@ -255,7 +255,7 @@ public class CreateUsersF extends javax.swing.JFrame {
         });
         getContentPane().add(cc, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 80, -1));
 
-        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(102, 255, 102));
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 400));
 
         pack();
@@ -282,7 +282,7 @@ public class CreateUsersF extends javax.swing.JFrame {
        
       if (dbc.insertData("INSERT INTO tbl_user (u_fname, u_lname, u_email, u_username, u_password, u_type, u_status) VALUES('"
      + fn.getText() + "','"+ln.getText()+"','"+ mail.getText() + "','" 
-     + us.getText() + "','" + pw.getText() + "','" + ut.getSelectedItem() + "','"+ut1.getSelectedItem()+"')")){
+     + us.getText() + "','" + pw.getText() + "','" + ut.getSelectedItem() + "','"+xt1.getSelectedItem()+"')")){
           
         
           JOptionPane.showMessageDialog(null, "Inserted Successfully!");
@@ -322,7 +322,7 @@ public class CreateUsersF extends javax.swing.JFrame {
        dbc.updateData("UPDATE tbl_user SET u_fname = '"+fn.getText()+",u_lname'"+
        ln.getText()+",u_email'"+mail.getText()+",u_username'"+
        us.getText()+",u_password'"+pw.getText()+",u_type'"+ut.getSelectedItem()+",u_status'"
-       +ut1.getSelectedItem()+"WHERE u_id = '"+id.getText()+"'");
+       +xt1.getSelectedItem()+"WHERE u_id = '"+id.getText()+"'");
        
        JOptionPane.showMessageDialog(null, "UPDATED SUCCESSFULLY!");
        userLoginF ads = new userLoginF();
@@ -412,6 +412,6 @@ public class CreateUsersF extends javax.swing.JFrame {
     public javax.swing.JButton up;
     public javax.swing.JTextField us;
     public javax.swing.JComboBox<String> ut;
-    public javax.swing.JComboBox<String> ut1;
+    public javax.swing.JComboBox<String> xt1;
     // End of variables declaration//GEN-END:variables
 }

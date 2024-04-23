@@ -65,7 +65,7 @@ public class ChangeP extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 51, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/images.png"))); // NOI18N
@@ -146,7 +146,7 @@ public class ChangeP extends javax.swing.JFrame {
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 260, 80, 30));
 
-        jPanel5.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel5.setBackground(new java.awt.Color(102, 255, 102));
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 520, 300));
 
         pack();

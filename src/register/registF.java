@@ -149,7 +149,7 @@ public class registF extends javax.swing.JFrame {
         jLabel1.setText("REGISTRATION FORM");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 150, 30));
 
-        jPanel2.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel2.setBackground(new java.awt.Color(204, 255, 204));
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 460));
 
         pack();

@@ -87,7 +87,7 @@ public class userLoginF extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 0, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/images.png"))); // NOI18N
@@ -99,7 +99,7 @@ public class userLoginF extends javax.swing.JFrame {
         jLabel15.setText("              Current User");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 140, 20));
 
-        p_add.setBackground(new java.awt.Color(153, 204, 255));
+        p_add.setBackground(new java.awt.Color(51, 0, 51));
         p_add.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 p_addMouseClicked(evt);
@@ -125,7 +125,7 @@ public class userLoginF extends javax.swing.JFrame {
         jLabel16.setText("USERS");
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 50, 30));
 
-        p_edit.setBackground(new java.awt.Color(153, 204, 255));
+        p_edit.setBackground(new java.awt.Color(102, 0, 102));
         p_edit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 p_editMouseClicked(evt);
@@ -148,7 +148,7 @@ public class userLoginF extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 400));
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel2.setBackground(new java.awt.Color(153, 255, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -250,7 +250,7 @@ public class userLoginF extends javax.swing.JFrame {
                   usf.us.setText(""+rs.getString("u_username"));
                   usf.pw.setText(""+rs.getString("u_password"));
                   usf.ut.setSelectedItem(""+rs.getString("u_type"));
-                  usf.ut1.setSelectedItem(""+rs.getString("u_status"));
+                  usf.xt1.setSelectedItem(""+rs.getString("u_status"));
                   usf.add.setEnabled(false);
                   usf.up.setEnabled(true);
                   usf.setVisible(true);
