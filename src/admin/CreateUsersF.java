@@ -255,7 +255,7 @@ public class CreateUsersF extends javax.swing.JFrame {
         });
         getContentPane().add(cc, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 80, -1));
 
-        jPanel1.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel1.setBackground(new java.awt.Color(190, 109, 103));
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 400));
 
         pack();

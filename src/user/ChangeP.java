@@ -146,7 +146,7 @@ public class ChangeP extends javax.swing.JFrame {
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 260, 80, 30));
 
-        jPanel5.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel5.setBackground(new java.awt.Color(190, 109, 103));
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 520, 300));
 
         pack();

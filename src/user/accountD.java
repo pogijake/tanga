@@ -79,11 +79,11 @@ public class accountD extends javax.swing.JFrame {
 
         acc_ln.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         acc_ln.setText("USER");
-        jPanel1.add(acc_ln, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 50, 30));
+        jPanel1.add(acc_ln, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 70, 30));
 
         acc_fn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         acc_fn.setText("ACC_FN");
-        jPanel1.add(acc_fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 50, 30));
+        jPanel1.add(acc_fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 70, 30));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("CHANGE PASS");
