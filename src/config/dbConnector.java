@@ -24,12 +24,33 @@ public class dbConnector {
     
       public dbConnector(){
             try{
-                connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/bayaw", "root", "");
+                connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/music", "root", "");
             }catch(SQLException ex){
                     System.out.println("Can't connect to database: "+ex.getMessage());
             }
         }
      
+      
+      public void deleteData(int id, String table, String table_id){
+            try{
+               PreparedStatement pst = connect.prepareStatement("DELETE FROM "+table+" WHERE "+table_id+" = ?"); 
+               pst.setInt(1,id);
+               int rowsDeleted = pst.executeUpdate();
+               if(rowsDeleted > 0){
+                 JOptionPane.showMessageDialog(null," Data Deleted Successfully");
+  
+               }else{
+                  System.out.println("Deletion failed!"); 
+               }
+               pst.close();
+            }catch(SQLException ex){
+                System.out.println("Connection Error: "+ex);
+            }
+            
+        }
+      
+      
+      
      //Function to retrieve data
         public ResultSet getData(String sql) throws SQLException{
             Statement stmt = connect.createStatement();
@@ -70,3 +91,5 @@ public class dbConnector {
         }
         
 }
+
+

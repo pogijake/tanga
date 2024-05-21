@@ -16,6 +16,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import register.registF;
+import user.djdashboard;
 import user.userDash;
 
 
@@ -42,7 +43,7 @@ public class loginF extends javax.swing.JFrame {
         dbConnector connector = new dbConnector();
         
         try{
-            String query = "SELECT * FROM tbl_user  WHERE u_username = '" + username + "'";
+            String query = "SELECT * FROM tbl_marc  WHERE u_username = '" + username + "'";
             ResultSet resultSet = connector.getData(query);
            if(resultSet.next()){
                
@@ -87,106 +88,114 @@ public class loginF extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        pw = new javax.swing.JTextField();
+        un = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        pw = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        un = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(190, 109, 103));
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setLayout(null);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("USERNAME");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(10, 10, 205, 44);
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("PASSWORD");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(10, 100, 213, 44);
+        jPanel1.add(pw);
+        pw.setBounds(10, 150, 230, 30);
+        jPanel1.add(un);
+        un.setBounds(10, 60, 230, 30);
+
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton2.setText("REGISTER");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, -1, -1));
+        jPanel1.add(jButton2);
+        jButton2.setBounds(10, 200, 100, 25);
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton1.setText("LOG-IN");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, -1));
-        jPanel2.add(pw, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 150, -1));
+        jPanel1.add(jButton1);
+        jButton1.setBounds(160, 200, 80, 25);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setText("PassWord");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, -1, -1));
-        jPanel2.add(un, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 150, -1));
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 300, 300));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setText("UserName");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, -1, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/futuristic montage.jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 360, 540));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("LOG-IN FORM");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 103, 35));
-
-        jPanel3.setBackground(new java.awt.Color(110, 9, 16));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel4.setText("Login");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 90, 30));
-
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 40));
-
-        jTextField1.setBackground(new java.awt.Color(190, 109, 103));
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 70, 10));
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 410));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 540));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      if(loginAcc(un.getText(), pw.getText())){
-          if(!status.equals("Active")){
-              JOptionPane.showMessageDialog(null, "in active");
-          }else{
-              if(type.equals("Admin")){
-                  JOptionPane.showMessageDialog(null, "login");
-                  dashboard ads = new dashboard();                
-                  ads.setVisible(true);
-                  this.dispose();
-              }else if(type.equals("User")){
-                  JOptionPane.showMessageDialog(null, "login");
-                  userDash uds = new userDash();              
-                  uds.setVisible(true);
-                  this.dispose();
-              }else{
-                   JOptionPane.showMessageDialog(null, "No account");
-              }
-          }
-          
-      }else{
-          JOptionPane.showMessageDialog(null, "Invalid Account");
-      }
-        
-        
+        if(loginAcc(un.getText(), pw.getText())){
+            if(!status.equals("Active")){
+                JOptionPane.showMessageDialog(null, "IN ACTIVE");
+            }else{
+                if(type.equals("Admin")){
+                    JOptionPane.showMessageDialog(null, "LOG IN");
+                    dashboard ads = new dashboard();
+                    ads.setVisible(true);
+                    this.dispose();
+                }else if(type.equals("Client")){
+                    JOptionPane.showMessageDialog(null, "LOG IN");
+                    userDash uds = new userDash();
+                    uds.setVisible(true);
+                    this.dispose();
+                }else if(type.equals("DJ")){
+                    JOptionPane.showMessageDialog(null, "LOG IN");
+                    djdashboard uds;
+                    uds = new djdashboard();
+                    uds.setVisible(true);
+                    this.dispose();
+                }else{
+                    JOptionPane.showMessageDialog(null, "NO ACCOUNT");
+                }
+            }
+
+        }else{
+            JOptionPane.showMessageDialog(null, "Invalid Account");
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      registF ads = new registF();
-       ads.setVisible(true);
-      this.dispose();
+        registF ads = new registF();
+        ads.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -225,13 +234,11 @@ public class loginF extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField pw;
     private javax.swing.JTextField un;
     // End of variables declaration//GEN-END:variables

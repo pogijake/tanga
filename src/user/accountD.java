@@ -32,26 +32,29 @@ public class accountD extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         acc_ln = new javax.swing.JLabel();
         acc_fn = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         idd = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         fn = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
         ln = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
         mail = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
         us = new javax.swing.JTextField();
-        ut = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        ut = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -61,13 +64,28 @@ public class accountD extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/images.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 80, 90));
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton1.setText("BACK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
 
-        jButton2.setBackground(new java.awt.Color(51, 51, 51));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 230, 50));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/futuristic montage.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 350, 500));
+
+        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel3.setLayout(null);
+
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton2.setText("LOG-OUT");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -75,69 +93,94 @@ public class accountD extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
+        jPanel3.add(jButton2);
+        jButton2.setBounds(10, 130, 83, 23);
 
-        acc_ln.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        acc_ln.setText("USER");
-        jPanel1.add(acc_ln, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 70, 30));
+        acc_ln.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        acc_ln.setForeground(new java.awt.Color(255, 255, 255));
+        acc_ln.setText("CUSTOMER");
+        jPanel3.add(acc_ln);
+        acc_ln.setBounds(10, 90, 170, 30);
 
         acc_fn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        acc_fn.setForeground(new java.awt.Color(255, 255, 255));
         acc_fn.setText("ACC_FN");
-        jPanel1.add(acc_fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 70, 30));
+        jPanel3.add(acc_fn);
+        acc_fn.setBounds(90, 30, 70, 30);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-user-100.png"))); // NOI18N
+        jPanel4.add(jLabel2);
+
+        jPanel3.add(jPanel4);
+        jPanel4.setBounds(10, 10, 70, 80);
+
+        idd.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        idd.setForeground(new java.awt.Color(255, 255, 255));
+        idd.setText("(UID)");
+        jPanel3.add(idd);
+        idd.setBounds(90, 50, 50, 30);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("First Name:");
+        jPanel3.add(jLabel3);
+        jLabel3.setBounds(10, 160, 150, 20);
+        jPanel3.add(fn);
+        fn.setBounds(10, 190, 260, 30);
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Last Name:");
+        jPanel3.add(jLabel6);
+        jLabel6.setBounds(10, 220, 102, 22);
+        jPanel3.add(ln);
+        ln.setBounds(10, 250, 260, 30);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Gmail:");
+        jPanel3.add(jLabel4);
+        jLabel4.setBounds(10, 280, 58, 22);
+        jPanel3.add(mail);
+        mail.setBounds(10, 310, 260, 30);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("UserName:");
+        jPanel3.add(jLabel5);
+        jLabel5.setBounds(10, 340, 101, 22);
+        jPanel3.add(us);
+        us.setBounds(10, 370, 260, 30);
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("User Type:");
+        jPanel3.add(jLabel10);
+        jLabel10.setBounds(10, 400, 96, 22);
+
+        ut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "User", "Admin", "" }));
+        jPanel3.add(ut);
+        ut.setBounds(10, 430, 250, 30);
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("ACCOUNT INFROMATION");
+        jPanel3.add(jLabel9);
+        jLabel9.setBounds(90, 10, 182, 34);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setText("CHANGE PASS");
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel8MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 90, 30));
+        jPanel1.add(jLabel8);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 320));
+        jPanel3.add(jPanel1);
+        jPanel1.setBounds(10, 470, 140, 30);
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel9.setText("ACCOUNT INFROMATION");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 190, 34));
-
-        idd.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        idd.setText("(UID)");
-        jPanel2.add(idd, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 50, 30));
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 530, 60));
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel3.setText("First Name:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, -1));
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel6.setText("Last Name:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel4.setText("Gmail:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, -1, -1));
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel5.setText("UserName:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, -1, -1));
-        getContentPane().add(fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 190, -1));
-        getContentPane().add(ln, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 190, -1));
-        getContentPane().add(mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 190, -1));
-        getContentPane().add(us, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 190, -1));
-
-        ut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "User", "Admin", " " }));
-        getContentPane().add(ut, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 190, -1));
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel10.setText("User Type:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, -1, -1));
-
-        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 530, 250));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 540));
 
         pack();
         setLocationRelativeTo(null);
@@ -166,6 +209,12 @@ public class accountD extends javax.swing.JFrame {
         cp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+   userDash ads = new userDash();
+        ads.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,7 +259,9 @@ public class accountD extends javax.swing.JFrame {
     public javax.swing.JLabel acc_ln;
     private javax.swing.JTextField fn;
     private javax.swing.JLabel idd;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -222,6 +273,7 @@ public class accountD extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField ln;
     private javax.swing.JTextField mail;
     private javax.swing.JTextField us;
