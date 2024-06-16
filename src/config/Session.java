@@ -21,6 +21,7 @@ public class Session {
     private String username;   
     private String type;   
     private String status;   
+    private String place;
          
     
     private Session(){
@@ -76,6 +77,15 @@ public class Session {
         this.email = email;
     }
 
+    public String getPlace() {
+       return place;
+    }
+
+    public void setPlace(String string) {
+    this.place = place;
+    }
+   
+    
     public String getUsername() {
         return username;
     }
@@ -99,6 +109,5 @@ public class Session {
     public void setStatus(String status) {
         this.status = status;
     }
-   
-    
+
 }

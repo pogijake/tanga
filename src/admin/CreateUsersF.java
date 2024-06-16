@@ -17,8 +17,8 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import static javafx.beans.binding.Bindings.select;
-import static javafx.beans.binding.Bindings.select;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -26,11 +26,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 
-
-/**
- *
- * @author User
- */
 public class CreateUsersF extends javax.swing.JFrame {
 
     /**
@@ -43,12 +38,13 @@ public class CreateUsersF extends javax.swing.JFrame {
     File selectedFile;
     public  String oldpath;   
     public  String path;   
+    public static String email,username;
     
 public int FileExistenceChecker(String path){
         File file = new File(path);
         String fileName = file.getName();
         
-        Path filePath = Paths.get("usf/userimages", fileName);
+        Path filePath = Paths.get("src/userimages", fileName);
         boolean fileExists = Files.exists(filePath);
         
         if (fileExists) {
@@ -57,7 +53,8 @@ public int FileExistenceChecker(String path){
             return 0;
         }
     
-    }
+    } 
+
 public static int getHeightFromWidth(String imagePath, int desiredWidth) {
         try {
             // Read the image file
@@ -78,8 +75,7 @@ public static int getHeightFromWidth(String imagePath, int desiredWidth) {
         
         return -1;
     }
-    
-public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
+   public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
     ImageIcon MyImage = null;
         if(ImagePath !=null){
             MyImage = new ImageIcon(ImagePath);
@@ -92,9 +88,10 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
     Image img = MyImage.getImage();
     Image newImg = img.getScaledInstance(label.getWidth(), newHeight, Image.SCALE_SMOOTH);
     ImageIcon image = new ImageIcon(newImg);
-    return image;
+    return image; 
 }
-    public void imageUpdater(String existingFilePath, String newFilePath){
+
+            public void imageUpdater(String existingFilePath, String newFilePath){
         File existingFile = new File(existingFilePath);
         if (existingFile.exists()) {
             String parentDirectory = existingFile.getParent();
@@ -115,9 +112,7 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
                 System.out.println("Error on update!");
             }
         }
-   }
-    public static String email,username;
-            
+   }  
     
     public boolean duplicateCheck(){
         
@@ -148,8 +143,8 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
             return false;
         }
     }
-    
-    public boolean UpdateCheck(){
+
+public boolean UpdateCheck(){
         
         dbConnector dbc = new dbConnector();
         
@@ -180,9 +175,9 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
         }
     }
     
+ 
     
-    
-    
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -195,9 +190,6 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
 
         jLabel7 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -210,21 +202,21 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
         id = new javax.swing.JTextField();
         fn = new javax.swing.JTextField();
         ln = new javax.swing.JTextField();
-        mail = new javax.swing.JTextField();
+        pl = new javax.swing.JTextField();
         us = new javax.swing.JTextField();
         pw = new javax.swing.JTextField();
         ut = new javax.swing.JComboBox<>();
         xt1 = new javax.swing.JComboBox<>();
-        select = new javax.swing.JButton();
-        cc = new javax.swing.JButton();
         up = new javax.swing.JButton();
-        cl = new javax.swing.JButton();
         add = new javax.swing.JButton();
-        del = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         image = new javax.swing.JLabel();
         remove = new javax.swing.JButton();
-        rf1 = new javax.swing.JButton();
+        select = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        mail = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 204, 255));
@@ -234,95 +226,40 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
         jPanel1.setBackground(new java.awt.Color(190, 109, 103));
         jPanel1.setLayout(null);
 
-        jPanel2.setBackground(new java.awt.Color(0, 51, 51));
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("CREATE FORM");
-
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jButton1.setText("BACK");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 424, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(21, 21, 21))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(-4, -3, 710, 50);
-
-        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel3.setLayout(null);
+        jPanel3.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("User ID:");
-        jPanel3.add(jLabel2);
-        jLabel2.setBounds(10, 100, 130, 20);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("First Name:");
-        jPanel3.add(jLabel10);
-        jLabel10.setBounds(10, 150, 150, 22);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Last Name:");
-        jPanel3.add(jLabel3);
-        jLabel3.setBounds(10, 200, 140, 22);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Gmail:");
-        jPanel3.add(jLabel4);
-        jLabel4.setBounds(10, 250, 120, 22);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("UserName:");
-        jPanel3.add(jLabel5);
-        jLabel5.setBounds(10, 300, 140, 22);
+        jLabel5.setText("Place:");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Password:");
-        jPanel3.add(jLabel6);
-        jLabel6.setBounds(10, 350, 140, 22);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("User Type:");
-        jPanel3.add(jLabel8);
-        jLabel8.setBounds(10, 400, 140, 22);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("User Status:");
-        jPanel3.add(jLabel9);
-        jLabel9.setBounds(10, 450, 150, 20);
 
         id.setEnabled(false);
         id.addActionListener(new java.awt.event.ActionListener() {
@@ -330,56 +267,18 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
                 idActionPerformed(evt);
             }
         });
-        jPanel3.add(id);
-        id.setBounds(140, 100, 200, 30);
 
         fn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fnActionPerformed(evt);
             }
         });
-        jPanel3.add(fn);
-        fn.setBounds(140, 150, 200, 30);
-        jPanel3.add(ln);
-        ln.setBounds(140, 200, 200, 30);
-        jPanel3.add(mail);
-        mail.setBounds(140, 250, 200, 30);
-        jPanel3.add(us);
-        us.setBounds(140, 300, 200, 30);
-        jPanel3.add(pw);
-        pw.setBounds(140, 350, 200, 30);
 
         ut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Customer", "DJ" }));
-        jPanel3.add(ut);
-        ut.setBounds(140, 400, 200, 30);
 
         xt1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
-        jPanel3.add(xt1);
-        xt1.setBounds(140, 450, 200, 30);
 
-        select.setBackground(new java.awt.Color(51, 51, 51));
-        select.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        select.setText("SELECT");
-        select.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectActionPerformed(evt);
-            }
-        });
-        jPanel3.add(select);
-        select.setBounds(370, 450, 90, 30);
-
-        cc.setBackground(new java.awt.Color(51, 51, 51));
-        cc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        cc.setText("CANCEL");
-        cc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ccActionPerformed(evt);
-            }
-        });
-        jPanel3.add(cc);
-        cc.setBounds(420, 40, 90, 30);
-
-        up.setBackground(new java.awt.Color(51, 51, 51));
+        up.setBackground(new java.awt.Color(0, 153, 153));
         up.setText("UPDATE");
         up.setEnabled(false);
         up.addActionListener(new java.awt.event.ActionListener() {
@@ -387,21 +286,8 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
                 upActionPerformed(evt);
             }
         });
-        jPanel3.add(up);
-        up.setBounds(120, 40, 90, 30);
 
-        cl.setBackground(new java.awt.Color(51, 51, 51));
-        cl.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        cl.setText("CLEAR");
-        cl.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clActionPerformed(evt);
-            }
-        });
-        jPanel3.add(cl);
-        cl.setBounds(320, 40, 90, 30);
-
-        add.setBackground(new java.awt.Color(51, 51, 51));
+        add.setBackground(new java.awt.Color(0, 153, 153));
         add.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         add.setText("ADD");
         add.addActionListener(new java.awt.event.ActionListener() {
@@ -409,19 +295,8 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
                 addActionPerformed(evt);
             }
         });
-        jPanel3.add(add);
-        add.setBounds(20, 40, 90, 30);
 
-        del.setBackground(new java.awt.Color(51, 51, 51));
-        del.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        del.setText("DELETE");
-        del.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                delActionPerformed(evt);
-            }
-        });
-        jPanel3.add(del);
-        del.setBounds(220, 40, 90, 30);
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -440,9 +315,7 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
                 .addContainerGap())
         );
 
-        jPanel3.add(jPanel4);
-        jPanel4.setBounds(360, 100, 240, 320);
-
+        remove.setBackground(new java.awt.Color(0, 153, 153));
         remove.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         remove.setText("REMOVE");
         remove.addActionListener(new java.awt.event.ActionListener() {
@@ -450,36 +323,165 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
                 removeActionPerformed(evt);
             }
         });
-        jPanel3.add(remove);
-        remove.setBounds(500, 450, 100, 25);
 
-        rf1.setBackground(new java.awt.Color(51, 51, 51));
-        rf1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        rf1.setText("REFRESH");
-        rf1.addActionListener(new java.awt.event.ActionListener() {
+        select.setBackground(new java.awt.Color(0, 153, 153));
+        select.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        select.setText("SELECT");
+        select.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rf1ActionPerformed(evt);
+                selectActionPerformed(evt);
             }
         });
-        jPanel3.add(rf1);
-        rf1.setBounds(520, 40, 90, 30);
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("UserName:");
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jButton1.setText("BACK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("CREATE FORM");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(mail, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(130, 130, 130)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(fn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ln, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pl, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(us, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pw, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(38, 38, 38)))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(up, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(20, 20, 20)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(130, 130, 130)
+                                .addComponent(ut, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addComponent(select)
+                        .addGap(43, 43, 43)
+                        .addComponent(remove, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(130, 130, 130)
+                                .addComponent(xt1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(33, 40, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(27, 27, 27))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(up, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(fn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ln, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(mail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(pl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(us, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pw, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ut, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(select)
+                            .addComponent(remove))))
+                .addGap(5, 5, 5)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(xt1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
 
         jPanel1.add(jPanel3);
-        jPanel3.setBounds(0, 40, 700, 570);
+        jPanel3.setBounds(0, 0, 650, 590);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 610));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 590));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
-        
-        
-        
-        
-        if(fn.getText().isEmpty()|| ln.getText().isEmpty() || mail.getText().isEmpty()
-                || us.getText().isEmpty()|| pw.getText().isEmpty()){
+     
+        if(fn.getText().isEmpty()|| ln.getText().isEmpty() || mail.getText().isEmpty() || us.getText().isEmpty()|| pw.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "All fields are required!");
         }else if(pw.getText().length() < 8){
             JOptionPane.showMessageDialog(null, "Characters password is 8 above!");
@@ -491,9 +493,10 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
             
              dbConnector dbc = new dbConnector();
        
-      if (dbc.insertData("INSERT INTO tbl_marc (u_fname, u_lname, u_email, u_username, u_password, u_type, u_status,u_image) VALUES('"
-     + fn.getText() + "','"+ln.getText()+"','"+ mail.getText() + "','" 
-     + us.getText() + "','" + pw.getText() + "','" + ut.getSelectedItem() + "','"+xt1.getSelectedItem()+"','"+destination+"')")){
+      if (dbc.insertData("INSERT INTO tbl_marc (u_fname, u_lname,u_email,u_place,u_username,u_password, u_type, u_status,u_image) VALUES('"
+     + fn.getText() + "','"+ln.getText()+"','"+ mail.getText()+"','"+ pl.getText()+"','" 
+     + us.getText() + "','"+ pw.getText()+ "','" + ut.getSelectedItem()+"','"
+              +xt1.getSelectedItem()+"','"+destination+"')")){
           try{
          Files.copy( selectedFile.toPath(),new File(destination).toPath(),StandardCopyOption.REPLACE_EXISTING);
           JOptionPane.showMessageDialog(null, "Inserted Successfully!");
@@ -516,13 +519,81 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
         // TODO add your handling code here:
     }//GEN-LAST:event_fnActionPerformed
 
+    private void upActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upActionPerformed
+        
+          
+        if(fn.getText().isEmpty()|| ln.getText().isEmpty() || mail.getText().isEmpty()
+                || us.getText().isEmpty()|| pw.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "All fields are required!");
+        }else if(pw.getText().length() < 8){
+            JOptionPane.showMessageDialog(null, "Characters password is 8 above!");
+            pw.setText("");
+        }else if(UpdateCheck()){
+            System.out.println("Duplicate Exist!");
+            
+        }else{
+              dbConnector dbc = new dbConnector();
+            
+          dbc.updateData("UPDATE tbl_marc SET u_fname='"+fn.getText()+"',u_lname='"+ln.getText()+"',u_email='"+mail.getText()+"',u_place='"+pl.getText()+"',u_username='"+
+                  us.getText()+ "',u_password='"+pw.getText()+"',u_type='"+ut.getSelectedItem()+"',u_status='"+
+                  xt1.getSelectedItem()+"',u_image='"+destination+"' WHERE u_id= '"+id.getText()+"'");
+       
+       
+            try {
+                  Path Path = Files.copy( selectedFile.toPath(),new File(destination).toPath(),StandardCopyOption.REPLACE_EXISTING); /*copy*/
+            } catch (IOException ex) {
+                Logger.getLogger(CreateUsersF.class.getName()).log(Level.SEVERE, null, ex);
+            }
+          JOptionPane.showMessageDialog(null, "Inserted Successfully!");
+          userLoginF ads = new userLoginF();
+         ads.setVisible(true);
+         
+          
+       
+       JOptionPane.showMessageDialog(null, "UPDATED SUCCESSFULLY!");
+       if(destination.isEmpty()){
+       File existingFile = new File(oldpath);
+       if(existingFile.exists()){
+       existingFile.delete();
+       }else{
+       if(!(oldpath.equals(path))){
+       imageUpdater(oldpath,path);
+       }
+       }
+       
+       
+       
+       
+         this.dispose();
+       }
+        }
+    }//GEN-LAST:event_upActionPerformed
+
+    private void idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+          userLoginF usf = new userLoginF();
+       usf.setVisible(true);
+       this.dispose();
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void removeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeActionPerformed
+       remove.setEnabled(false);
+       select.setEnabled(true);
+       destination="";
+       path="";
+    }//GEN-LAST:event_removeActionPerformed
+
     private void selectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectActionPerformed
-   JFileChooser fileChooser = new JFileChooser();
+       JFileChooser fileChooser = new JFileChooser();
                 int returnValue = fileChooser.showOpenDialog(null);
                 if (returnValue == JFileChooser.APPROVE_OPTION) {
                     try {
                         selectedFile = fileChooser.getSelectedFile();
-                        destination = "usf/userimages/" + selectedFile.getName();
+                        destination = "src/userimages/" + selectedFile.getName();
                         path  = selectedFile.getAbsolutePath();
                         
                         
@@ -542,85 +613,6 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
                 }
 
     }//GEN-LAST:event_selectActionPerformed
-
-    private void upActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upActionPerformed
-      
-         if(fn.getText().isEmpty()|| ln.getText().isEmpty() || mail.getText().isEmpty()
-                || us.getText().isEmpty()|| pw.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "All fields are required!");
-        }else if(pw.getText().length() < 8){
-            JOptionPane.showMessageDialog(null, "Characters password is 8 above!");
-            pw.setText("");
-        }else if(UpdateCheck()){
-            System.out.println("Duplicate Exist!");
-            
-        }else{
-        dbConnector dbc = new dbConnector();
-       dbc.updateData("UPDATE tbl_marc SET u_fname = '"+fn.getText()+",u_lname'"+
-       ln.getText()+",u_email'"+mail.getText()+",u_username'"+
-       us.getText()+",u_password'"+pw.getText()+",u_type'"+ut.getSelectedItem()+",u_status'"
-       +xt1.getSelectedItem()+",u_image= '"+destination+"'WHERE u_id = '"+id.getText()+"'");
-       
-       
-       
-       
-       JOptionPane.showMessageDialog(null, "UPDATED SUCCESSFULLY!");
-       if(destination.isEmpty()){
-       File existingFile = new File(oldpath);
-       if(existingFile.exists()){
-       existingFile.delete();
-       }else{
-       if(!(oldpath.equals(path))){
-       imageUpdater(oldpath,path);
-       }
-       }
-       
-       
-       
-       }
-       userLoginF ads = new userLoginF();
-         ads.setVisible(true);
-         this.dispose();
-       
-        }
-    }//GEN-LAST:event_upActionPerformed
-
-    private void delActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delActionPerformed
-       
-    }//GEN-LAST:event_delActionPerformed
-
-    private void clActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_clActionPerformed
-
-    private void ccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ccActionPerformed
-       userLoginF usf = new userLoginF();
-       usf.setVisible(true);
-       this.dispose();
-       
-    }//GEN-LAST:event_ccActionPerformed
-
-    private void idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-          userLoginF usf = new userLoginF();
-       usf.setVisible(true);
-       this.dispose();
-       
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void rf1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rf1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rf1ActionPerformed
-
-    private void removeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeActionPerformed
-       remove.setEnabled(false);
-       select.setEnabled(true);
-       destination="";
-       path="";
-    }//GEN-LAST:event_removeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -649,6 +641,20 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -660,15 +666,13 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton add;
-    private javax.swing.JButton cc;
-    private javax.swing.JButton cl;
-    private javax.swing.JButton del;
     public javax.swing.JTextField fn;
     public javax.swing.JTextField id;
     public javax.swing.JLabel image;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -678,14 +682,13 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     public javax.swing.JTextField ln;
     public javax.swing.JTextField mail;
+    public javax.swing.JTextField pl;
     public javax.swing.JTextField pw;
     public javax.swing.JButton remove;
-    private javax.swing.JButton rf1;
     public javax.swing.JButton select;
     public javax.swing.JButton up;
     public javax.swing.JTextField us;

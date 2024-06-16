@@ -3,18 +3,36 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/admin/userLoginF.java</file>
-            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/caht/chatt.java</file>
-            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/caht/Meeting.java</file>
-            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/admin/dashboard.java</file>
-            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/admin/customer2.java</file>
-            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/admin/Dj2.java</file>
-            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/admin/CreateUsersF.java</file>
-            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/user/userDash.java</file>
-            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/admin/customer.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/MARCDJ/djdashboard.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/CREATEACCS/CUSACC.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/customer/customer.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/testappnew/LOG1.java</file>
             <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/register/registF.java</file>
-            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/admin/Dj.java</file>
-            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/caht/ACTIVE.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/testappnew/LOGIN.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/admin/Printing.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/customer/userDash.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/register/CUSFORM.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/CREATEACCS/DJACC4.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/customer/ChangeP.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/testappnew/PILI.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/testappnew/TesTappNew.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/MARCDJ/DJACC.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/customer/customer2.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/MARCDJ/Dj2.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/MARCDJ/accountDJ.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/MARCDJ/DJCHANGE.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/config/PassWordH.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/admin/CreateUsersF.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/customer/accountD.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/admin/userLoginF.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/caht/sche1.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/config/dbConnector.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/admin/dashboard.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/testappnew/loginF.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/testappnew/intro.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/MARCDJ/Dj21.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/testappnew/DJLOGIN.java</file>
+            <file>file:/C:/Users/Marc%20Gerard/Documents/NetBeansProjects/jake&amp;marc/src/testappnew/CUSLOGIN.java</file>
         </group>
     </open-files>
 </project-private>
